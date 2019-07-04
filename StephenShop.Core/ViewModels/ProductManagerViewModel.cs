@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace StephenShop.Core.ViewModels
 {
-    public class ProductManagerView
+    public class ProductManagerViewModel
     {
-        public Product product { get; set; }
+        public Product Product { get; set; }
         public IEnumerable<ProductCategory> ProductCategories { get; set; }
     }
 }

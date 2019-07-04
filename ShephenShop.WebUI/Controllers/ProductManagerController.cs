@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using ShephenShop.DataAccess.InMemory;
 using StephenShop.Core.Models;
+using StephenShop.Core.ViewModels;
 
 namespace ShephenShop.WebUI.Controllers
 {
@@ -26,10 +27,11 @@ namespace ShephenShop.WebUI.Controllers
         }
         public ActionResult Create()
         {
-            ProductManagerViewModel
+            ProductManagerViewModel viewModel = new ProductManagerViewModel();
 
-            Product product = new Product();
-            return View(product);
+            viewModel.Product = new Product();
+            viewModel.ProductCategories = productCategories.Collection();
+            return View(viewModel);
         }
         [HttpPost]
         public ActionResult Create(Product product)
@@ -56,7 +58,11 @@ namespace ShephenShop.WebUI.Controllers
             }
             else
             {
-                return View(product);
+                ProductManagerViewModel viewModel = new ProductManagerViewModel();
+                viewModel.Product = product;
+                viewModel.ProductCategories = productCategories.Collection();
+
+                return View(viewModel);
             }
         }
         [HttpPost]
