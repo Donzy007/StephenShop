@@ -1,7 +1,9 @@
 using ShephenShop.Core.Contracts;
 using ShephenShop.DataAccess.InMemory;
+using StephenShop.Core.Contracts;
 using StephenShop.Core.Models;
 using StephenShop.DataAccess.SQL;
+using StephenShop.Services;
 using System;
 
 using Unity;
@@ -48,6 +50,9 @@ namespace ShephenShop.WebUI
             // container.RegisterType<IProductRepository, ProductRepository>();
             container.RegisterType<IRepository<Product>, SQLRepository<Product>>();
             container.RegisterType<IRepository<ProductCategory>, SQLRepository<ProductCategory>>();
+            container.RegisterType<IRepository<Basket>, SQLRepository<Basket>>();
+            container.RegisterType<IRepository<BasketItem>, SQLRepository<BasketItem>>();
+            container.RegisterType<IBasketService, BasketService>();
         }
     }
 }
