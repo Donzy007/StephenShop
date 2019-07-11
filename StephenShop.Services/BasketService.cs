@@ -137,9 +137,11 @@ namespace StephenShop.Services
             {
                 int? basketCount = (from item in basket.BasketItems
                                     select item.Quantity).Sum();
+
                 decimal? basketTotal = (from item in basket.BasketItems
                                         join p in productContext.Collection() on item.ProductId equals p.Id
                                         select item.Quantity * p.Price).Sum();
+
                 model.BasketCount = basketCount ?? 0;
                 model.BasketTotal = basketTotal ?? decimal.Zero;
 

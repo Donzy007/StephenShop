@@ -83,6 +83,9 @@
     <Reference Include="System.Net.Http.WebRequest" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BasketControllerTest.cs" />
+    <Compile Include="Mocks\MockContext.cs" />
+    <Compile Include="Mocks\MockHttpContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
@@ -97,7 +100,16 @@
       <Project>{821CFCA9-197A-4570-99A6-9A75AF30D0E0}</Project>
       <Name>ShephenShop.WebUI</Name>
     </ProjectReference>
+    <ProjectReference Include="..\StephenShop.Core\StephenShop.Core.csproj">
+      <Project>{CB83E9ED-23AC-40EE-BAEC-B85DC48FF0C8}</Project>
+      <Name>StephenShop.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StephenShop.Services\StephenShop.Services.csproj">
+      <Project>{C093D24E-D0D9-4AED-A77C-9A921E4A4D36}</Project>
+      <Name>StephenShop.Services</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
