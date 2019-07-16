@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace StephenShop.Services
 {
-    public class OrderService: IOrderService
+    public class OrderService : IOrderService
     {
         IRepository<Order> orderContext;
         public OrderService(IRepository<Order> OrderContext)
@@ -20,7 +20,7 @@ namespace StephenShop.Services
 
         public void CreateOrder(Order baseOrder, List<BasketItemViewModel> basketItems)
         {
-           foreach(var item in basketItems)
+            foreach (var item in basketItems)
             {
                 baseOrder.OrderItems.Add(new OrderItem()
                 {
@@ -34,5 +34,22 @@ namespace StephenShop.Services
             orderContext.Insert(baseOrder);
             orderContext.Commit();
         }
+
+        public List<Order> GetOrderList()
+        {
+            return orderContext.Collection().ToList();
+        }
+
+        public Order GetOrder(string Id)
+        {
+            return orderContext.Find(Id);
+        }
+
+        public void UpdatedOrder(Order updatedOrder)
+        {
+            orderContext.Update(updatedOrder);
+            orderContext.Commit();
+        }
+       
     }
 }
