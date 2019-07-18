@@ -11,6 +11,7 @@ using StephenShop.Core.ViewModels;
 
 namespace ShephenShop.WebUI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductManagerController : Controller
     {
         IRepository<Product> context;
